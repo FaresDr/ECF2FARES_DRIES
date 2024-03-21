@@ -8,14 +8,14 @@ import { useNavigation } from '@react-navigation/native'
 
 export default function PokedexScreen() {
     const pokedex = useSelector(state => state.pokemon.pokedex)
-    console.log(pokedex[0]);
+  
     const dispatch = useDispatch()
   
     
-    useEffect(() => {       
-        dispatch(fetchPoke())       
+    // useEffect(() => {       
+    //     dispatch(fetchPoke())       
                  
-    },[])
+    // },[])
     const navigation = useNavigation()
     const cardGap = 16;
     
@@ -24,6 +24,7 @@ export default function PokedexScreen() {
   return (
     <View>
       <View>
+        <Button title='Vider le pokédex' onPress={()=> (dispatch(clearPokedex()))}></Button>
               
               {pokedex? <ScrollView style={styles.container_secondary}>
                 
@@ -47,7 +48,7 @@ export default function PokedexScreen() {
                     uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokedex?.id}.png`,
                 }}
             /><View><Text>{pokedex.name}</Text></View></Pressable></View>)}
-                <Button title='Ajouter au pokédex' onPress={()=> (dispatch(clearPokedex()))}></Button></View>
+                </View>
           </ScrollView> : <View><ActivityIndicator size="small" color="#0000ff" /></View> }
           </View>
     </View>

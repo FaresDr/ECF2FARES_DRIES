@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchPoke } from "../store/data";
+import { fetchPoke, clearEvolution } from "../store/data";
 import { StyleSheet, Text, View, TextInput, ScrollView,Image, Pressable } from 'react-native'
 import PokeItem from "./PokeItem";
 import { useNavigation } from '@react-navigation/native'
@@ -12,15 +12,18 @@ const PokeList = () => {
   
     const dispatch = useDispatch()
     const [search, setSearch] = useState('');
-    console.log(pokemon);
+  
     const navigation = useNavigation()
   
     useEffect(() => {       
         dispatch(fetchPoke())       
-                 
+        dispatch(clearEvolution())   
     },[])
+    const filteredPokemon = pokemon.filter(poke => (poke.name.includes(search)));
 
-    console.log(useSelector(state=> state.pokemon.pokedex));
+
+
+    
 
 
     return (

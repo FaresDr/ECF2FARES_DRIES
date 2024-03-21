@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 const PokeItem = (props) => {
     const pokemon = props.pokemon
     const [poke, setChange] = useState()
+
     const dispatch = useDispatch({})
     const navigation = useNavigation()
     
@@ -78,8 +79,8 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     tinyLogo: {
-        width: 50,
-        height: 50,
+        width: 150,
+        height: 150,
     },
     logo: {
         width: 66,
