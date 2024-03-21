@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import PokeDetails from './screens/PokeDetails'
 import PokedexScreen from './screens/PokedexScreen'
 import PokeEvolution from './screens/PokeEvolution'
-import PokeDetails2 from './screens/PokeDetails2'
+
 
 
 const Stack = createNativeStackNavigator()
@@ -23,7 +23,7 @@ export default function () {
         <Stack.Screen name='PokeDetail' component={PokeDetails} />       
         <Stack.Screen name='Pokedex' component={PokedexScreen} />       
         <Stack.Screen name='PokeEvolution' component={PokeEvolution} />       
-        <Stack.Screen name='PokeDetail2' component={PokeDetails2} />       
+      
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>
